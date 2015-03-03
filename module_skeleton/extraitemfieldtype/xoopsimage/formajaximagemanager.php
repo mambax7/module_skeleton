@@ -39,7 +39,6 @@ if (file_exists($file = FORMAJAXIMAGEMANAGER_PATH . '/language/' . $GLOBALS['xoo
     include_once $file;
 }
 
-
 $module_handler = xoops_gethandler('module');
 $systemModule = $module_handler->getByDirname('system');
 $systemModuleId = $systemModule->id;
@@ -49,8 +48,6 @@ $userIsAdmin = (is_object($GLOBALS['xoopsUser']) && $GLOBALS['xoopsUser']->isAdm
 $imgcat_handler = xoops_gethandler('imagecategory');
 $image_handler = xoops_gethandler('image');
 $imgcatObjperm_handler = xoops_gethandler('groupperm');
-
-
 
 $op = isset($_POST['op']) ? (string)$_POST['op'] : '';
 //$op = XoopsRequest::getString('op', '', 'POST');
@@ -263,7 +260,6 @@ switch ($op) {
         $ret['javascript'] = '// NOP';
         echo json_encode($ret);
         break;
-
 
 // Images operations
     case 'getImageForm' :
@@ -626,7 +622,6 @@ switch ($op) {
         }
         break;
 
-
 // Imgcats operations
     case 'getImgcatForm' :
         $name = isset($_REQUEST['name']) ? (string)$_REQUEST['name'] : '';
@@ -928,8 +923,6 @@ switch ($op) {
         break;
 }
 
-
-
 if (!class_exists('XoopsFormAjaxImageManager')) {
     xoops_load('XoopsFormElement');
 
@@ -1109,8 +1102,6 @@ if (!class_exists('XoopsFormAjaxImageManager')) {
             $this->_return = $return;
         }
 
-
-
         /**
          * Set initial content
          *
@@ -1130,7 +1121,6 @@ if (!class_exists('XoopsFormAjaxImageManager')) {
         {
             return $encode ? htmlspecialchars($this->_value) : $this->_value;
         }
-
 
         /**
          * Set initial content
@@ -1152,7 +1142,6 @@ if (!class_exists('XoopsFormAjaxImageManager')) {
             return $this->_image_id;
         }
 
-
         /**
          * Set initial content
          *
@@ -1172,8 +1161,6 @@ if (!class_exists('XoopsFormAjaxImageManager')) {
         {
             return $this->_imgcat_id;
         }
-
-
 
         /**
          * prepare HTML for output
@@ -1976,6 +1963,7 @@ $(document).ready(function() {
             $html .= "</div>\n";
             $html .= "</fieldset>\n";
             $html .= "<input type='text' name='{$this->getName()}' title='{$this->getTitle()}' id='{$this->getId()}' size='80' maxlength='255' value='{$myts->htmlSpecialChars($this->getValue())}' {$this->getExtra()} />\n";
+
             return $html;
         }
     }

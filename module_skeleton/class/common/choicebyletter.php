@@ -49,12 +49,12 @@ class Module_skeletonChoiceByLetter
     /**
      * Constructor
      *
-     * @param object        $objHandler {@link XoopsPersistableObjectHandler}
-     * @param object        $criteria {@link CriteriaElement}
-     * @param array         $alphabet Array of alphabet letters
-     * @param string        $arg_name item on the current page
-     * @param string        $url
-     * @param string        $extra_arg Additional arguments to pass in the URL
+     * @param object $objHandler {@link XoopsPersistableObjectHandler}
+     * @param object $criteria   {@link CriteriaElement}
+     * @param array  $alphabet   Array of alphabet letters
+     * @param string $arg_name   item on the current page
+     * @param string $url
+     * @param string $extra_arg  Additional arguments to pass in the URL
      */
     public function __constructor($objHandler, $criteria = null, $field_name = null, $alphabet = array(), $arg_name = 'letter', $url = null, $extra_arg)
     {

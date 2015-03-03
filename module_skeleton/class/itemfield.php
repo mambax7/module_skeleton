@@ -79,8 +79,8 @@ class Module_skeletonItemfield extends XoopsObject
     }
 
     /**
-     * @param string        $key
-     * @param string        $format
+     * @param  string $key
+     * @param  string $format
      * @return mixed
      */
     public function getVar($key, $format = 's')
@@ -96,13 +96,14 @@ class Module_skeletonItemfield extends XoopsObject
     }
 
     /**
-     * @return null|object  {@link module_skeletonItemfieldcategory}
+     * @return null|object {@link module_skeletonItemfieldcategory}
      */
     public function getItemfieldcategory()
     {
         if (!isset($this->itemfieldcategoryObj)) {
             $this->itemfieldcategoryObj = $this->module_skeleton->getHandler('itemfieldcategory')->get($this->getVar('itemfield_category_id'));
         }
+
         return $this->itemfieldcategoryObj;
     }
 
@@ -149,8 +150,8 @@ class Module_skeletonItemfield extends XoopsObject
     /**
      * Get {@link XoopsThemeForm} for adding/editing items
      *
-     * @param bool          $action
-     * @return object       {@link XoopsThemeForm}
+     * @param  bool   $action
+     * @return object {@link XoopsThemeForm}
      */
     public function getForm($action = false)
     {
@@ -748,6 +749,7 @@ class Module_skeletonItemfield extends XoopsObject
                 } else {
                     $value = '';
                 }
+
                 return $value;
                 break;
             case 'select_multi':
@@ -761,12 +763,14 @@ class Module_skeletonItemfield extends XoopsObject
                         }
                     }
                 }
+
                 return $ret;
                 break;
             case 'group':
                 $member_handler = &xoops_gethandler('member');
                 $options = $member_handler->getGroupList();
                 $ret = isset($options[$value]) ? $options[$value] : '';
+
                 return $ret;
                 break;
             case 'group_multi':
@@ -778,6 +782,7 @@ class Module_skeletonItemfield extends XoopsObject
                         $ret[$key] = htmlspecialchars($options[$key]);
                     }
                 }
+
                 return $ret;
                 break;
             case 'longdate':
@@ -802,6 +807,7 @@ class Module_skeletonItemfield extends XoopsObject
                 $value = str_replace("{X_UID}", $itemObj->getVar("uid"), $value);
                 $value = str_replace("{X_URL}", XOOPS_URL, $value );
                 $value = str_replace("{X_UNAME}", $itemObj->getVar("uname"), $value);
+
                 return $value;
                 break;
             case 'rank':
@@ -810,6 +816,7 @@ class Module_skeletonItemfield extends XoopsObject
                 if (isset($userrank['image']) && $userrank['image'] != "") {
                     $user_rankimage = '<img src="' . XOOPS_UPLOAD_URL . '/' . $userrank['image'] . '" alt="' . $userrank['title'] . '" /><br />';
                 }
+
                 return $user_rankimage.$userrank['title'];
                 break;
             case 'yesno':
@@ -819,6 +826,7 @@ class Module_skeletonItemfield extends XoopsObject
                 xoops_load('XoopsLists');
                 $timezones = XoopsLists::getTimeZoneList();
                 $value = empty($value) ? '0' : strval($value);
+
                 return $timezones[str_replace('.0', '', $value)];
                 break;
 // extra item field types
@@ -838,8 +846,8 @@ class Module_skeletonItemfield extends XoopsObject
     /**
      * Returns a value ready to be saved in the database
      *
-     * @param       $itemObj
-     * @param mixed $value value to format
+     * @param        $itemObj
+     * @param  mixed $value   value to format
      * @return mixed
      */
     public function getValueForSave($itemObj, $value)
@@ -870,11 +878,13 @@ class Module_skeletonItemfield extends XoopsObject
                 if ($value != '') {
                     return strtotime($value);
                 }
+
                 return $value;
             case 'datetime':
                 if (!empty($value)) {
                     return strtotime($value['date']) + (int) $value['time'];
                 }
+
                 return $value;
 // extra item field types
             case 'file':
@@ -929,6 +939,7 @@ error_log(print_r($uploader->normalizedFILES(),true));
                 return json_encode($files);
             case 'xoopsimage':
                 $typeconfigs = $this->getVar('itemfield_typeconfigs');
+
                 return json_encode($value);
         }
     }
@@ -956,7 +967,7 @@ class Module_skeletonItemfieldHandler extends XoopsPersistableObjectHandler
     private $module_skeleton = null;
 
     /**
-     * @param null|object   $db
+     * @param null|object $db
      */
     public function __construct($db)
     {
@@ -989,16 +1000,17 @@ class Module_skeletonItemfieldHandler extends XoopsPersistableObjectHandler
                 $retItemfieldObjs[$itemfieldObj->getVar('itemfield_name')] = $itemfieldObj;
             }
         }
+
         return $retItemfieldObjs;
     }
 
     /**
      * save a profile itemfield in the database
      *
-     * @param object        $itemfieldObj   reference to the object
-     * @param bool          $force whether to force the query execution despite security settings
+     * @param  object $itemfieldObj reference to the object
+     * @param  bool   $force        whether to force the query execution despite security settings
      * @internal param bool $checkObject check if the object is dirty and clean the attributes
-     * @return bool         FALSE if failed, TRUE if already present and unchanged or successful
+     * @return bool   FALSE if failed, TRUE if already present and unchanged or successful
      */
     public function insert($itemfieldObj, $force = false)
     {
@@ -1123,9 +1135,9 @@ class Module_skeletonItemfieldHandler extends XoopsPersistableObjectHandler
     /**
      * delete an itemfield from the database
      *
-     * @param object|int    $itemfieldObj reference to the object to delete
-     * @param bool          $force
-     * @return bool         FALSE if failed
+     * @param  object|int $itemfieldObj reference to the object to delete
+     * @param  bool       $force
+     * @return bool       FALSE if failed
      */
     public function delete($itemfieldObj, $force = false)
     {
@@ -1309,6 +1321,7 @@ class Module_skeletonItemfieldHandler extends XoopsPersistableObjectHandler
             array_multisort($order, $list);
             XoopsCache::write('module_skeleton_extraitemfieldtypeslist', $list);
         }
+
         return $list;
     }
 
@@ -1322,6 +1335,7 @@ class Module_skeletonItemfieldHandler extends XoopsPersistableObjectHandler
         $standardItemfieldtypes = $this->getStandardItemfieldTypesList();
         $extraItemfieldtypes = $this->getExtraItemfieldTypesList();
         $itemfieldtypes = array_merge($standardItemfieldtypes, $extraItemfieldtypes);
+
         return $itemfieldtypes;
     }
 

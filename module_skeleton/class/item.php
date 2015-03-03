@@ -41,7 +41,7 @@ class Module_skeletonItem extends XoopsObject
     /**
      * constructor
      *
-     * @param array         $itemfields array of {@link module_skeletonItemfield} objects
+     * @param array $itemfields array of {@link module_skeletonItemfield} objects
      */
     public function __construct($itemfields)
     {
@@ -79,13 +79,14 @@ class Module_skeletonItem extends XoopsObject
     }
 
     /**
-     * @return null|object  {@link module_skeletonItemcategory}
+     * @return null|object {@link module_skeletonItemcategory}
      */
     public function getItemcategory()
     {
         if (!isset($this->itemcategoryObj)) {
             $this->itemcategoryObj = $this->module_skeleton->getHandler('itemcategory')->get($this->getVar('item_category_id'));
         }
+
         return $this->itemcategoryObj;
     }
 
@@ -127,8 +128,8 @@ class Module_skeletonItem extends XoopsObject
     /**
      * Get {@link XoopsThemeForm} for adding/editing items
      *
-     * @param bool          $action
-     * @return object       {@link XoopsThemeForm}
+     * @param  bool   $action
+     * @return object {@link XoopsThemeForm}
      */
     public function getForm($action = false)
     {
@@ -264,7 +265,7 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
     private $itemfields = array();
 
     /**
-     * @param null|object   $db
+     * @param null|object $db
      */
     public function __construct($db)
     {
@@ -275,9 +276,9 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
     /**
      * Create a new {@link Module_skeletonItem} object
      *
-     * @param bool          $isNew Flag the new objects as "new"?
+     * @param bool $isNew Flag the new objects as "new"?
      *
-     * @return object       {@link module_skeletonItem}
+     * @return object {@link module_skeletonItem}
      */
     public function create($isNew = true)
     {
@@ -286,6 +287,7 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
         if ($isNew === true) {
             $itemObj->setNew();
         }
+
         return $itemObj;
     }
 
@@ -299,6 +301,7 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
         if (count($this->itemfields) == 0) {
             $this->itemfields = $this->module_skeleton->getHandler('itemfield')->loadItemfields();
         }
+
         return $this->itemfields;
     }
 
@@ -359,8 +362,8 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
     /**
      * Save a new itemfield in the database
      *
-     * @param array         $vars array of variables, taken from $module->loadInfo('profile')['field']
-     * @param int           $weight
+     * @param array $vars   array of variables, taken from $module->loadInfo('profile')['field']
+     * @param int   $weight
      *
      * @internal param int  $itemcategoryid ID of the itemcategory to add it to
      * @internal param int  $type datatype of the field
@@ -410,6 +413,7 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
             $msg = '&nbsp;&nbsp;<span class="red">ERROR: Could not insert field <strong>' . $vars['name'] . '</strong> into the database. '.implode(' ', $itemfieldObj->getErrors()) . $this->db->error() . '</span>';
         }
         unset($itemfieldObj);
+
         return $msg;
     }
 
@@ -426,11 +430,11 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
     /**
      * insert a new {@link module_skeletonItem} object in the database
      *
-     * @param object        $itemObj reference to the {@link module_skeletonItem} object
-     * @param bool          $force whether to force the query execution despite security settings
-     * @param bool          $checkObject check if the object is dirty and clean the attributes
+     * @param object $itemObj     reference to the {@link module_skeletonItem} object
+     * @param bool   $force       whether to force the query execution despite security settings
+     * @param bool   $checkObject check if the object is dirty and clean the attributes
      *
-     * @return bool         FALSE if failed, TRUE if already present and unchanged or successful
+     * @return bool FALSE if failed, TRUE if already present and unchanged or successful
      */
     function insert($itemObj, $force = false, $checkObject = true)
     {
@@ -444,8 +448,8 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
     /**
      * delete an item from the database
      *
-     * @param object|int    $itemObj {@link module_skeletonItem}
-     * @param bool          $force
+     * @param  object|int $itemObj {@link module_skeletonItem}
+     * @param  bool       $force
      * @return bool
      */
     public function delete($itemObj, $force = false)
@@ -485,15 +489,16 @@ class Module_skeletonItemHandler extends XoopsPersistableObjectHandler
 
         // delete comments
         xoops_comment_delete((int) $this->module_skeleton->getModule()->mid(), (int) $item_id);
+
         return true;
     }
 
     /**
      * Search items
      *
-     * @param object        $criteria {@link CriteriaElement}
-     * @param array         $searchVars Fields to be fetched
-     * @param array         $groups for Usergroups is selected (only admin!)
+     * @param object $criteria   {@link CriteriaElement}
+     * @param array  $searchVars Fields to be fetched
+     * @param array  $groups     for Usergroups is selected (only admin!)
      *
      * @return array
      */

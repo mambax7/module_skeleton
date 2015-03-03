@@ -54,5 +54,6 @@ function xoops_module_install_module_skeleton(&$xoopsModule)
         mkdir($path, 0777, true);
     chmod($path, 0777);
     copy(INDEX_FILE_PATH, $path . '/index.html');
+
     return true;
 }

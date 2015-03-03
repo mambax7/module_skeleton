@@ -6,27 +6,6 @@
 
 define('_MD_MODULE_SKELETON_ADMIN_PAGE', "Admin");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
 

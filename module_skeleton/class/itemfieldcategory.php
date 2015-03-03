@@ -59,7 +59,7 @@ class Module_skeletonItemfieldcategory extends XoopsObject
     /**
      * This method return {@link Module_skeletonItem} values as array ready for html output
      *
-     * @return  array
+     * @return array
      */
     public function getInfo()
     {
@@ -79,8 +79,8 @@ class Module_skeletonItemfieldcategory extends XoopsObject
     /**
      * Get {@link XoopsThemeForm} for adding/editing categories
      *
-     * @param bool          $action
-     * @return object       {@link XoopsThemeForm}
+     * @param  bool   $action
+     * @return object {@link XoopsThemeForm}
      */
     function getForm($action = false)
     {
@@ -219,7 +219,7 @@ class Module_skeletonItemfieldcategoryHandler extends XoopsPersistableObjectHand
     var $topItemfieldcategories = false;
 
     /**
-     * @param null|object   $db
+     * @param null|object $db
      */
     public function __construct($db)
     {
@@ -230,9 +230,9 @@ class Module_skeletonItemfieldcategoryHandler extends XoopsPersistableObjectHand
     /**
      * delete a itemfieldcategory, child categories and items from the database
      *
-     * @param object|int    $itemfieldcategoryObj
-     * @param bool          $force
-     * @return bool         TRUE on success or FALSE on failure
+     * @param  object|int $itemfieldcategoryObj
+     * @param  bool       $force
+     * @return bool       TRUE on success or FALSE on failure
      */
     public function delete($itemfieldcategoryObj, $force = false)
     {

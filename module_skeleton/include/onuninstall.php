@@ -25,9 +25,6 @@ include_once(XOOPS_ROOT_PATH . "/modules/$modDirName/include/common.php");
 //@include_once(XOOPS_ROOT_PATH . "/modules/module_skeleton/language/" . $xoopsConfig['language'] . "/admin.php");
 xoops_loadLanguage('admin', $modDirName);
 
-
-
-
 /**
  * @param object            $xoopsModule
  * @return bool             FALSE if failed

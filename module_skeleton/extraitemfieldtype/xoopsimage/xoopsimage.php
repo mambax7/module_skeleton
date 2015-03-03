@@ -80,6 +80,7 @@ include_once __DIR__ . "/../extraitemfieldtype.php";
         for ($image_key = 0; $image_key < $maxnum; ++$image_key) {
             $element->addElement(new XoopsFormAjaxImageManager('', $name . "[]", $images["$image_key"]));
         }
+
         return $element;
     }
 
@@ -104,6 +105,7 @@ include_once __DIR__ . "/../extraitemfieldtype.php";
     {
         $name = $itemfieldObj->getVar('itemfield_name', 'e');
         $typeconfigs = $this->getVar('itemfield_typeconfigs');
+
         return json_encode($value);
 // IN PROGRESS
 // IN PROGRESS

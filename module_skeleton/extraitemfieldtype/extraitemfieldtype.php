@@ -39,11 +39,11 @@ class ExtraItemfieldType
         $this->itemfieldObj = $itemfieldObj;
     }
 
-	public function getEditElement()
+    public function getEditElement()
     {
     }
 
-	public function getOutputValue()
+    public function getOutputValue()
     {
     }
 

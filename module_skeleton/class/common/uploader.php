@@ -69,8 +69,8 @@ class Module_skeletonMediaUploader extends XoopsMediaUploader
     /**
      * Check if uploaded file exists
      *
-     * @param string        $media_name Name of the input file form element $_FILES[$media_name]
-     * @param int           $index Index of the file (if more than one uploaded under that name)
+     * @param  string $media_name Name of the input file form element $_FILES[$media_name]
+     * @param  int    $index      Index of the file (if more than one uploaded under that name)
      * @return bool
      */
     function mediaExists($media_name, $index = null)
@@ -104,8 +104,8 @@ class Module_skeletonMediaUploader extends XoopsMediaUploader
      * Parameters are passed by reference, though only for performance reasons. They're not altered
      * by this function.
      *
-     * @param array $array1
-     * @param array $array2
+     * @param  array $array1
+     * @param  array $array2
      * @return array
      * @author Daniel <daniel (at) danielsmedegaardbuus (dot) dk>
      * @author Gabriel Sobrinho <gabriel (dot) sobrinho (at) gmail (dot) com>
@@ -120,6 +120,7 @@ class Module_skeletonMediaUploader extends XoopsMediaUploader
                 $merged[$key] = $value;
             }
         }
+
         return $merged;
     }
 
@@ -140,6 +141,7 @@ class Module_skeletonMediaUploader extends XoopsMediaUploader
                 }
             }
         }
+
         return $retArray;
     }
 
@@ -170,14 +172,15 @@ class Module_skeletonMediaUploader extends XoopsMediaUploader
                 $normalizedFiles[$field_name] = $mergedArray;
             }
         }
+
         return $normalizedFiles;
     }
 
     /**
      * Fetch the uploaded file
      *
-     * @param string        $media_name Name of the file field
-     * @param int           $index Index of the file (if more than one uploaded under that name)
+     * @param  string $media_name Name of the file field
+     * @param  int    $index      Index of the file (if more than one uploaded under that name)
      * @return bool
      */
     public function fetchMedia($media_name, $index = null)
@@ -185,10 +188,12 @@ class Module_skeletonMediaUploader extends XoopsMediaUploader
         $this->errors = array();
         if (empty($this->extensionToMime)) {
             $this->setErrors(_ER_UP_MIMETYPELOAD);
+
             return false;
         }
         if (!isset($_FILES[$media_name])) {
             $this->setErrors(_ER_UP_FILENOTFOUND);
+
             return false;
         } else if (is_array($_FILES[$media_name]['name']) && isset($index)) {
             $index = (int) $index;
@@ -241,21 +246,26 @@ class Module_skeletonMediaUploader extends XoopsMediaUploader
                 default:
                     break;
             }
+
             return false;
         }
         // than checks by xoopsuploader
         if (intval($this->mediaSize) < 0) {
             $this->setErrors(_ER_UP_INVALIDFILESIZE);
+
             return false;
         }
         if ($this->mediaName == '') {
             $this->setErrors(_ER_UP_FILENAMEEMPTY);
+
             return false;
         }
         if ($this->mediaTmpName == 'none' || ! is_uploaded_file($this->mediaTmpName)) {
             $this->setErrors(_ER_UP_NOFILEUPLOADED);
+
             return false;
         }
+
         return true;
     }
 

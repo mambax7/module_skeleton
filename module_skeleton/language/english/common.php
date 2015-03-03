@@ -41,8 +41,6 @@ define('_CO_MODULE_SKELETON_ERROR_NOITEM', "Error: non-existent item");
 define('_CO_MODULE_SKELETON_ERROR_NOITEMFIELDCATEGORY', "Error: non-existent item field category");
 define('_CO_MODULE_SKELETON_ERROR_NOITEMFIELD', "Error: non-existent itemfield");
 
-
-
 // generic buttons
 define('_CO_MODULE_SKELETON_BUTTON_LIST', "List");
 define('_CO_MODULE_SKELETON_BUTTON_MOVE', "Move");
@@ -98,8 +96,6 @@ define('_CO_MODULE_SKELETON_BUTTON_ITEMFIELD_ADD', "Add item field");
 define('_CO_MODULE_SKELETON_BUTTON_ITEMFIELDS_ADD', "Add item fields");
 define('_CO_MODULE_SKELETON_BUTTON_ITEMFIELD_DELETE', "Delete item field");
 define('_CO_MODULE_SKELETON_BUTTON_ITEMFIELDS_DELETE', "Delete items field");
-
-
 
 // filter
 define('_CO_MODULE_SKELETON_FILTER_SEARCH', "Search");
@@ -271,8 +267,6 @@ define('_CO_MODULE_SKELETON_ITEMFIELD_WEIGHT_DESC', "");
 define('_CO_MODULE_SKELETON_ITEMFIELD_PROF_EDITABLE', "Field editable from profile IN PROGRESS");
 define('_CO_MODULE_SKELETON_ITEMFIELD_PROF_EDITABLE_DESC', "");
 
-
-
 // permissions
 define('_CO_MODULE_SKELETON_PERM_ITEMCATEGORY_WRITE', "Item category write permission");
 define('_CO_MODULE_SKELETON_PERM_ITEMCATEGORY_WRITE_DESC', "Select item category write permission by group");
@@ -290,8 +284,6 @@ define('_CO_MODULE_SKELETON_PERM_ITEMFIELD_WRITE', "Item field write permission"
 define('_CO_MODULE_SKELETON_PERM_ITEMFIELD_WRITE_DESC', "Select item field write permission by group");
 define('_CO_MODULE_SKELETON_PERM_ITEMFIELD_SEARCH', "Item field search permission");
 define('_CO_MODULE_SKELETON_PERM_ITEMFIELD_SEARCH_DESC', "Select item field search permission by group");
-
-
 
 /**
  * @return array

@@ -45,6 +45,7 @@ function module_skeleton_notify_iteminfo($itemcategory, $id)
     if ($itemcategory == 'global') {
         $item['name'] = '';
         $item['url'] = '';
+
         return $item;
     }
 
@@ -55,6 +56,7 @@ function module_skeleton_notify_iteminfo($itemcategory, $id)
         $result_array = $xoopsDB->fetchArray($result);
         $item['name'] = $result_array['itemcategory_title'];
         $item['url'] = MODULE_SKELETON_URL . '/itemcategory.php?itemcategory_id=' . (int) $id;
+
         return $item;
     }
     if ($itemcategory == 'item') {
@@ -64,7 +66,9 @@ function module_skeleton_notify_iteminfo($itemcategory, $id)
         $result_array = $xoopsDB->fetchArray($result);
         $item['name'] = $result_array['item_title'];
         $item['url'] = MODULE_SKELETON_URL . '/item.php?itemcategory_id=' . (int) $result_array['item_category_id'] . '&amp;item_id=' . (int) $id;
+
         return $item;
     }
+
     return null;
 }

@@ -32,23 +32,16 @@ define('_MI_MODULE_SKELETON_MENU_ABOUT', "About");
 define('_MI_MODULE_SKELETON_SUBMENU_ITEMS', "Items");
 define('_MI_MODULE_SKELETON_SUBMENU_ITEMCATEGORIES', "Itemcategories");
 
-
-
-
-
     // Blocks
     // Names of blocks for this module (Not all module has blocks)
     define('_MI_MODULE_SKELETON_BNAME1', "Recent Downloads");
     define('_MI_MODULE_SKELETON_BNAME2', "Top Downloads");
     define('_MI_MODULE_SKELETON_BNAME3', "Top Downloads by top categories");
 
-
     // Sub menu titles
     define('_MI_MODULE_SKELETON_SMNAME1', "Submit");
     define('_MI_MODULE_SKELETON_SMNAME2', "Popular");
     define('_MI_MODULE_SKELETON_SMNAME3', "Top rated");
-
-
 
 // Module config setting
 define('_MI_MODULE_SKELETON_EDITOR', "[editor] Text editor");
@@ -69,10 +62,7 @@ define('_MI_MODULE_SKELETON_UPLOADPATH_DESC', "Upload directory *MUST* be an abs
 define('_MI_MODULE_SKELETON_UPLOADMAXFILESIZE', "[upload] Max file size (bytes)");
 define('_MI_MODULE_SKELETON_UPLOADMAXFILESIZE_DESC', "Maximum file size allowed for file uploads.<br />WARNING: Upload File Size Limit is also influenced by 'upload_max_filesize', 'post_max_size' and 'memory_limit' php.ini directives");
 
-
-
 // Comments
-
 
 
 // Notifications
@@ -145,13 +135,7 @@ define('_MI_MODULE_SKELETON_RELEASE', "Release Date: ");
 
 define('_MI_MODULE_SKELETON_HELP', "Help");
 
-
-
-
-
 define('_MI_MODULE_SKELETON_VARIOUS_CONFIGS', "Various preferences");
 define('_MI_MODULE_SKELETON_VARIOUS_CONFIGSDSC', "");
-
-
 
 define('_MI_MODULE_SKELETON_HELP_IMPORT', "Import<br />(IN PROGRESS)");

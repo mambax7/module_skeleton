@@ -50,7 +50,6 @@ define('_AM_MODULE_SKELETON_PERM_NOTE', "Select permissions");
 define('_AM_MODULE_SKELETON_PERM_NOTE_DESC', "Select itemcategory or item field permissions.");
 define('_AM_MODULE_SKELETON_PERM', "Permission form");
 
-
 /*
 
 define('_AM_MODULE_SKELETON_PERM_MANAGEMENT', "Permissions management");

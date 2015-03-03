@@ -39,6 +39,7 @@ function module_skeleton_bytesToSize1000($bytes, $precision = 2)
 {
     // human readable format -- powers of 1000
     $units = array('b', 'kb', 'mb', 'gb', 'tb', 'pb', 'eb');
+
     return @round(
             $bytes / pow(1000, ($i = floor(log($bytes, 1000)))),
             $precision
@@ -54,6 +55,7 @@ function module_skeleton_bytesToSize1024($bytes, $precision = 2)
 {
     // Human readable format -- powers of 1024
     $units = array('B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB');
+
     return @round(
             $bytes / pow(1024, ($i = floor(log($bytes, 1024)))),
             $precision
@@ -161,9 +163,11 @@ function module_skeleton_makeDir($dir, $perm = 0777, $create_index = true)
                 }
                 @fclose($fileHandler);
             }
+
             return true;
         }
     }
+
     return null;
 }
 
@@ -175,13 +179,14 @@ function module_skeleton_getFiles($path = '.')
 {
 $files = array();
     $dir = opendir($path);
-	while ($file = readdir($dir)) {
-		if(is_file($path . $file)) {
+    while ($file = readdir($dir)) {
+        if(is_file($path . $file)) {
             if($file != '.' && $file != '..' && $file != 'blank.gif' && $file != 'index.html') {
-				$files[] = $file;
+                $files[] = $file;
             }
-		}
-	}
+        }
+    }
+
     return $files;
 }
 
@@ -229,6 +234,7 @@ function module_skeleton_copyDir($source, $destination)
         }
     }
     closedir($dirHandler);
+
     return true;
 }
 
@@ -242,6 +248,7 @@ function module_skeleton_delFile($path)
 {
     if (is_file($path)) {
         @chmod($path, 0777);
+
         return @unlink($path);
     } else {
         return fasle;
@@ -276,6 +283,7 @@ function module_skeleton_delDir($dir, $if_not_empty = true)
     } else {
         // NOP
     }
+
     return rmdir($dir);
 }
 
@@ -334,6 +342,7 @@ function module_skeleton_sortItemcategories($criteria = null, $itemcategory_pid 
             }
         }
     }
+
     return $sorted;
 }
 
@@ -368,6 +377,7 @@ function module_skeleton_sortItemfieldcategories($criteria = null, $itemfieldcat
             }
         }
     }
+
     return $sorted;
 }
 
@@ -387,6 +397,7 @@ function module_skeleton_userIsAdmin()
     }
 
     $module_skeleton_isAdmin = (!is_object($xoopsUser)) ? false : $xoopsUser->isAdmin($module_skeleton->getModule()->getVar('mid'));
+
     return $module_skeleton_isAdmin;
 }
 
